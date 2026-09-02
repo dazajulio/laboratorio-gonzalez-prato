@@ -2,7 +2,7 @@ import { LabExam, PatientLead, SystemConfig } from '../types/lab';
 import { INITIAL_EXAMS } from '../data/initialExams';
 import { INITIAL_LEADS } from '../data/mockLeads';
 
-const EXAMS_KEY = 'gp_lab_exams_v1';
+const EXAMS_KEY = 'gp_lab_exams_v2';
 const LEADS_KEY = 'gp_lab_leads_v1';
 const CONFIG_KEY = 'gp_lab_config_v1';
 

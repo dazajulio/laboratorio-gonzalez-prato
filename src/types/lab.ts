@@ -17,7 +17,7 @@ export interface LabExam {
 export interface KnowledgeDocument {
   id: string;
   title: string;
-  category: 'PROTOCOLOS' | 'PREANALITICA' | 'DOMICILIOS' | 'SEGUROS' | 'FAQ_MEDICAS';
+  category: 'PROTOCOLOS' | 'PREANALITICA' | 'MICROBIOLOGIA' | 'MICOLOGIA' | 'DOMICILIOS' | 'SEGUROS' | 'FAQ_MEDICAS';
   fileName: string;
   fileSize: string;
   uploadedAt: string;

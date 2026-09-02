@@ -139,12 +139,44 @@ export function processPatientMessage(
   const matchedKnowledge: KnowledgeDocument[] = [];
   for (const doc of knowledgeDocs) {
     const hasTopicMatch = doc.keyTopics.some(topic => normUser.includes(normalizeText(topic)));
-    const hasSnippetMatch = normalizeText(doc.contentSnippet).includes(normUser) || (normUser.length > 5 && normalizeText(doc.title).includes(normUser));
-    if ((normUser.includes('pago') || normUser.includes('seguro') || normUser.includes('zelle') || normUser.includes('pago movil')) && doc.category === 'SEGUROS') {
+    const hasSnippetMatch = normalizeText(doc.contentSnippet).includes(normUser) || (normUser.length > 4 && normalizeText(doc.title).includes(normUser));
+
+    // Categorías específicas
+    if (doc.category === 'SEGUROS' && (normUser.includes('pago') || normUser.includes('seguro') || normUser.includes('zelle') || normUser.includes('pago movil') || normUser.includes('efectivo') || normUser.includes('bcv') || normUser.includes('transferencia'))) {
       matchedKnowledge.push(doc);
-    } else if ((normUser.includes('domicilio') || normUser.includes('casa') || normUser.includes('encamado')) && doc.category === 'DOMICILIOS') {
+    } else if (doc.category === 'DOMICILIOS' && (normUser.includes('domicilio') || normUser.includes('casa') || normUser.includes('encamado') || normUser.includes('a domicilio'))) {
       matchedKnowledge.push(doc);
-    } else if ((normUser.includes('antibiotico') || normUser.includes('antibiograma') || normUser.includes('cultivo')) && doc.category === 'PROTOCOLOS') {
+    } else if (doc.category === 'MICROBIOLOGIA' && (
+      normUser.includes('urocultivo') || normUser.includes('orina') || normUser.includes('chorro medio') ||
+      normUser.includes('coprocultivo') || normUser.includes('heces') || normUser.includes('fecal') || normUser.includes('panal') ||
+      normUser.includes('exudado') || normUser.includes('faringeo') || normUser.includes('garganta') ||
+      normUser.includes('esputo') || normUser.includes('desgarro') || normUser.includes('expectoracion') ||
+      normUser.includes('herida') || normUser.includes('ulcera') || normUser.includes('absceso') ||
+      normUser.includes('otico') || normUser.includes('ocular') || normUser.includes('conjuntival') || normUser.includes('nasal') ||
+      normUser.includes('lcr') || normUser.includes('liquido') || normUser.includes('pleural') || normUser.includes('ascitico') ||
+      normUser.includes('hemocultivo') || normUser.includes('antibiograma') || normUser.includes('antibiotico') || normUser.includes('cultivo')
+    )) {
+      matchedKnowledge.push(doc);
+    } else if (doc.category === 'MICOLOGIA' && (
+      normUser.includes('micologico') || normUser.includes('hongo') || normUser.includes('hongos') ||
+      normUser.includes('onicomicosis') || normUser.includes('una') || normUser.includes('unas') ||
+      normUser.includes('cuero cabelludo') || normUser.includes('tinea') || normUser.includes('tina') ||
+      normUser.includes('pitiriasis') || normUser.includes('escama') || normUser.includes('antimicotico') ||
+      normUser.includes('esmalte') || normUser.includes('pie de atleta')
+    )) {
+      matchedKnowledge.push(doc);
+    } else if (doc.category === 'PREANALITICA' && (
+      normUser.includes('ayuno') || normUser.includes('agua') || normUser.includes('cafe') || normUser.includes('chicle') ||
+      normUser.includes('biotina') || normUser.includes('levotiroxina') || normUser.includes('tiroides') ||
+      normUser.includes('cortisol') || normUser.includes('prolactina') || normUser.includes('lh') || normUser.includes('fsh') ||
+      normUser.includes('progesterona') || normUser.includes('estradiol') || normUser.includes('dhea') ||
+      normUser.includes('insulina') || normUser.includes('glicemia') || normUser.includes('lipidico') || normUser.includes('colesterol') ||
+      normUser.includes('trigliceridos') || normUser.includes('acido urico') || normUser.includes('urea') || normUser.includes('creatinina') ||
+      normUser.includes('transaminasas') || normUser.includes('tgo') || normUser.includes('tgp') || normUser.includes('ggt') ||
+      normUser.includes('rhogam') || normUser.includes('coagulacion') || normUser.includes('pt') || normUser.includes('tpt') || normUser.includes('fibrinogeno') ||
+      normUser.includes('anticoagulante') || normUser.includes('warfarina') || normUser.includes('aspirina') || normUser.includes('plaquetas') ||
+      normUser.includes('testosterona') || normUser.includes('preparacion') || normUser.includes('requisito') || normUser.includes('condicion')
+    )) {
       matchedKnowledge.push(doc);
     } else if (hasTopicMatch || hasSnippetMatch) {
       matchedKnowledge.push(doc);
@@ -154,9 +186,9 @@ export function processPatientMessage(
   // 4. Saludos
   const isGreeting = ['hola', 'buenos dias', 'buenas tardes', 'buenas noches', 'saludos', 'que tal'].some(g => normUser.includes(g));
   if (matchedExams.length === 0 && matchedKnowledge.length === 0 && isGreeting) {
-    let greetingReply = '¡Hola! Bienvenido a *GONZALEZ-PRATO Laboratorio* 🧪 (Dirección Técnica: Luisa Carolina González Ramírez).\n\nSoy su Asistente Clínico Virtual disponible 24/7 para brindarle:\n• 💰 Cotizaciones instantáneas de exámenes.\n• ⏱️ Requisitos de ayuno y preparación de muestras.\n• 📋 Formas de pago (Tasa BCV oficial, Pago Móvil, Zelle).\n\n';
+    let greetingReply = '¡Hola! Bienvenido a *GONZALEZ-PRATO Laboratorio* 🧪 (Dirección Técnica: Luisa Carolina González Ramírez).\n\nSoy su Asistente Clínico Virtual disponible 24/7 para brindarle:\n• 💰 Cotizaciones instantáneas de exámenes.\n• ⏱️ Requisitos de ayuno y preparación de muestras.\n• 🔬 Protocolos para Urocultivos, Coprocultivos y Estudios Micológicos.\n• 📋 Formas de pago (Tasa BCV oficial, Pago Móvil, Zelle).\n\n';
     if (isOutOfHours) {
-      greetingReply += '*(Nota: Nuestra sede física se encuentra en receso fuera de horario, pero puedo cotizarle y orientarle de inmediato).*\n\n¿Qué prueba médica desea consultar hoy?';
+      greetingReply += '*(Nota: Nuestra sede física se encuentra en receso fuera de horario, pero puedo cotizarle y orientarle de inmediato).*\\n\\n¿Qué prueba médica desea consultar hoy?';
     } else {
       greetingReply += '¿Qué prueba médica o perfil desea consultar hoy?\n*(En cualquier momento puede escribir "secretaria" para hablar con nuestro equipo).*';
     }
@@ -175,7 +207,7 @@ export function processPatientMessage(
   // Sin coincidencia
   if (matchedExams.length === 0 && matchedKnowledge.length === 0) {
     return {
-      replyText: 'Disculpe, no logré identificar con exactitud el examen o procedimiento en su mensaje.\n\nEn *GONZALEZ-PRATO Laboratorio* disponemos de áreas de Hematología, Química Sanguínea, Hormonas, Microbiología Automatizada y Marcadores Tumorales.\n\nPor favor indíqueme el nombre exacto de la prueba médica o envíenos los datos de su orden.\n' + (isOutOfHours ? '*(Nuestra sede abrirá el ' + scheduleStatus.nextOpening + ' para atención humana y toma de muestras).*' : '*(O si lo prefiere, escriba "secretaria" para hablar con un asesor).*'),
+      replyText: 'Disculpe, no logré identificar con exactitud el examen o procedimiento en su mensaje.\n\nEn *GONZALEZ-PRATO Laboratorio* disponemos de áreas de Hematología, Química Sanguínea, Hormonas, Microbiología Automatizada, Estudios Micológicos y Marcadores Tumorales.\n\nPor favor indíqueme el nombre exacto de la prueba médica o envíenos su orden médica.\n' + (isOutOfHours ? '*(Nuestra sede abrirá el ' + scheduleStatus.nextOpening + ' para atención humana y toma de muestras).*' : '*(O si lo prefiere, escriba "secretaria" para hablar con un asesor).*'),
       matchedExams: [],
       matchedKnowledgeDocs: [],
       totalUsd: 0,
@@ -198,7 +230,10 @@ export function processPatientMessage(
       reply += '*' + (idx + 1) + '. ' + exam.name + '*\n';
       reply += '   💵 *Precio:* $' + exam.priceUsd.toFixed(2) + ' USD (Bs. ' + examBs + ')\n';
       reply += '   🩸 *Tipo de muestra:* ' + exam.sampleType + '\n';
-      reply += '   ⌛ *Preparación / Ayuno:* ' + exam.fastingHours + '\n';
+      reply += '   ⌛ *Ayuno / Preparación:* ' + exam.fastingHours + '\n';
+      if (exam.notes) {
+        reply += '   ⚠️ *Condiciones Preanalíticas:* ' + exam.notes + '\n';
+      }
       reply += '   ⏱️ *Tiempo de entrega:* ' + exam.turnaround + '\n\n';
     });
     reply += '──────────────────────────\n';
@@ -207,9 +242,10 @@ export function processPatientMessage(
   }
 
   if (matchedKnowledge.length > 0) {
-    reply += 'ℹ️ *INFORMACIÓN CLÍNICA ADICIONAL (Base de Conocimiento):*\n';
-    matchedKnowledge.slice(0, 2).forEach(doc => {
-      reply += '• *' + doc.title + ':* ' + doc.contentSnippet + '\n\n';
+    reply += 'ℹ️ *PROTOCOLO CLÍNICO & GUÍA PREANALÍTICA OFICIAL:*\n';
+    const uniqueDocs = Array.from(new Set(matchedKnowledge.map(d => d.id))).map(id => matchedKnowledge.find(d => d.id === id)!);
+    uniqueDocs.slice(0, 2).forEach(doc => {
+      reply += '• *' + doc.title + ':*\n' + doc.contentSnippet + '\n\n';
     });
   }
 
@@ -217,7 +253,7 @@ export function processPatientMessage(
     reply += '📍 *Próxima Apertura de Sede:* ' + scheduleStatus.nextOpening + ' (Toma de muestras matutina).\n';
     reply += 'Le esperamos en nuestra sede. Si desea dejar una orden agendada, puede indicarlo por aquí.';
   } else {
-    reply += '📍 *Horario de Toma de Muestras:* Lunes a Viernes de 7:00 AM a 11:30 AM.\n';
+    reply += '📍 *Horario de Toma de Muestras:* Lunes a Viernes de 7:00 AM a 11:30 AM (Atención administrativa hasta las 4:00 PM).\n';
     reply += '¿Desea agendar su turno o requiere alguna orientación adicional?';
   }
 

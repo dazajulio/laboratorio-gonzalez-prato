@@ -1,30 +1,30 @@
 import { LabExam } from '../types/lab';
 
 export const INITIAL_EXAMS: LabExam[] = [
-  // --- HEMATOLOGÍA ---
+  // --- HEMATOLOGÍA & COAGULACIÓN ---
   {
     id: 'hem-1',
     category: 'Hematología',
     name: 'Hematología Completa',
-    synonyms: ['hemograma', 'recuento globular', 'formula leucocitaria', 'plaquetas y globular', 'perfil hematologico'],
+    synonyms: ['hemograma', 'recuento globular', 'formula leucocitaria', 'plaquetas y globular', 'perfil hematologico', 'cuadro hematico'],
     priceUsd: 7.5,
-    fastingHours: '4 a 8 horas',
+    fastingHours: 'Ayuno ideal (en emergencias en cualquier momento)',
     sampleType: 'Sangre total (Tubo EDTA Tapa Morada)',
     turnaround: '4 horas',
     active: true,
-    notes: 'Evalúa glóbulos rojos, glóbulos blancos y plaquetas.'
+    notes: 'No realizar ejercicio físico intenso o de alto impacto 24h antes. Evitar alcohol y tabaco 24h antes. Notificar medicamentos (anticoagulantes, antiagregantes, AINEs, antibióticos, hierro), transfusiones en últimos 3 meses o patologías crónicas/agudas. Puede beber agua simple libremente.'
   },
   {
     id: 'hem-2',
     category: 'Hematología',
-    name: 'Plaquetas',
-    synonyms: ['recuento plaquetario', 'plaquetas aisladas', 'trombocitos'],
+    name: 'Contaje de Plaquetas',
+    synonyms: ['plaquetas', 'recuento plaquetario', 'plaquetas aisladas', 'trombocitos'],
     priceUsd: 4.0,
-    fastingHours: '4 horas',
+    fastingHours: 'Ayuno ligero de 4 horas',
     sampleType: 'Sangre total (Tubo EDTA)',
     turnaround: '4 horas',
     active: true,
-    notes: 'Monitoreo de coagulación y dengue.'
+    notes: 'Indicar uso de fármacos antiagregantes plaquetarios (Aspirina, Clopidogrel) o AINEs. Mencionar enfermedades agudas o crónicas que afecten la función plaquetaria.'
   },
   {
     id: 'hem-3',
@@ -32,67 +32,79 @@ export const INITIAL_EXAMS: LabExam[] = [
     name: 'Velocidad de Sedimentación Globular (VSG)',
     synonyms: ['vsg', 'sedimentacion', 'velocidad de sedimentacion globular'],
     priceUsd: 4.0,
-    fastingHours: '4 horas',
+    fastingHours: '4 horas de ayuno',
     sampleType: 'Sangre total con citrato o EDTA',
     turnaround: '4 horas',
     active: true,
-    notes: 'Marcador inespecífico de inflamación/infección.'
+    notes: 'Informar si cursa con algún proceso febril, infeccioso, o si está embarazada. Mencionar si está tomando algún tipo de tratamiento.'
   },
   {
     id: 'hem-4',
     category: 'Hematología',
     name: 'Frotis de Sangre Periférica',
-    synonyms: ['frotis', 'morfologia sanguinea', 'lamina periferica'],
+    synonyms: ['frotis', 'morfologia sanguinea', 'lamina periferica', 'frotis sanguineo'],
     priceUsd: 6.0,
-    fastingHours: '4 a 8 horas',
+    fastingHours: 'Sin condiciones especiales',
     sampleType: 'Sangre capilar o EDTA',
     turnaround: '24 horas',
     active: true,
-    notes: 'Lectura microscópica directa por especialista.'
+    notes: 'No requiere ninguna condición previa especial. Lectura morfológica microscópica directa.'
   },
   {
     id: 'hem-5',
     category: 'Hematología',
     name: 'Grupo Sanguíneo y Factor Rh',
-    synonyms: ['tipiaje', 'grupo sanguineo', 'factor rh', 'tipo de sangre'],
+    synonyms: ['tipiaje', 'grupo sanguineo', 'factor rh', 'tipo de sangre', 'rh'],
     priceUsd: 6.0,
-    fastingHours: 'Sin ayuno requerido',
-    sampleType: 'Sangre total',
+    fastingHours: 'No requiere ayuno estricto (se recomienda ayuno ligero de 4 a 6 horas)',
+    sampleType: 'Sangre total (Tubo EDTA o sin anticoagulante)',
     turnaround: '2 horas',
     active: true,
-    notes: 'Requerido para cirugías, licencias y transfusiones.'
+    notes: 'Informar si ha recibido transfusiones sanguíneas en los últimos 3 meses o inmunoglobulinas recientes. En mujeres embarazadas, notificar antecedente de administración de inmunoglobulina anti-D (RhoGAM).'
   },
   {
     id: 'hem-6',
     category: 'Hematología',
-    name: 'Tiempo de Protrombina (TP) e INR',
-    synonyms: ['tp', 'inr', 'tiempo de protrombina', 'coagulacion tp'],
+    name: 'Tiempo de Protrombina (TP / PT) e INR',
+    synonyms: ['tp', 'pt', 'inr', 'tiempo de protrombina', 'coagulacion tp'],
     priceUsd: 7.0,
-    fastingHours: '4 a 8 horas',
+    fastingHours: 'Ayuno ideal o al menos 3 a 4 horas sin ingerir alimentos',
     sampleType: 'Plasma citratado (Tubo Tapa Celeste)',
     turnaround: '4 horas',
     active: true,
-    notes: 'Control anticoagulante (Warfarina/Sintrom) y preoperatorio.'
+    notes: 'Notificar si toma anticoagulantes orales (Warfarina, Acenocumarol, Rivaroxabán, Apixabán) o Heparina. Notificar toma de aspirina u otros AINEs y si padece alguna alteración hepática.'
   },
   {
     id: 'hem-7',
     category: 'Hematología',
-    name: 'Tiempo de Tromboplastina Parcial (TPT)',
-    synonyms: ['tpt', 'tiempo de tromboplastina', 'coagulacion tpt', 'ttpa'],
+    name: 'Tiempo de Tromboplastina Parcial (TPT / PTT)',
+    synonyms: ['tpt', 'ptt', 'tiempo de tromboplastina', 'coagulacion tpt', 'ttpa'],
     priceUsd: 7.0,
-    fastingHours: '4 a 8 horas',
+    fastingHours: 'Ayuno de al menos 3 a 4 horas sin ingerir alimentos',
     sampleType: 'Plasma citratado (Tubo Tapa Celeste)',
     turnaround: '4 horas',
     active: true,
-    notes: 'Evaluación de vía intrínseca de coagulación.'
+    notes: 'Notificar si toma anticoagulantes orales o Heparina, aspirina u otros AINEs, o patología hepática.'
   },
   {
     id: 'hem-8',
     category: 'Hematología',
+    name: 'Fibrinógeno',
+    synonyms: ['fibrinogeno', 'fibrinogeno plasmatico', 'factor i de coagulacion'],
+    priceUsd: 9.0,
+    fastingHours: 'Ayuno de 3 a 4 horas sin alimentos',
+    sampleType: 'Plasma citratado (Tubo Tapa Celeste)',
+    turnaround: '4 horas',
+    active: true,
+    notes: 'Evaluación de coagulación y reactante de fase aguda. Notificar tratamiento anticoagulante o afección hepática.'
+  },
+  {
+    id: 'hem-9',
+    category: 'Hematología',
     name: 'Eosinófilos en Moco Nasal',
     synonyms: ['moco nasal', 'eosinofilos nasal', 'citologia nasal', 'alergia nasal'],
     priceUsd: 6.0,
-    fastingHours: 'Sin ayuno. No aplicar gotas nasales 24h previas.',
+    fastingHours: 'Sin ayuno. Suspender gotas nasales o descongestionantes 12-24h antes.',
     sampleType: 'Secreción nasal en lámina',
     turnaround: '24 horas',
     active: true,
@@ -103,14 +115,14 @@ export const INITIAL_EXAMS: LabExam[] = [
   {
     id: 'qui-1',
     category: 'Química Sanguínea',
-    name: 'Glicemia en ayunas (Glucosa basal)',
+    name: 'Glicemia Basal (Glucosa en ayunas)',
     synonyms: ['glicemia', 'glucosa', 'azucar en sangre', 'glicemia basal', 'glucemia'],
     priceUsd: 4.5,
-    fastingHours: '8 a 12 horas estrictas de ayuno',
+    fastingHours: 'Ayuno estricto de 8 a 12 horas exactas',
     sampleType: 'Suero (Tubo Tapa Roja o Amarilla)',
     turnaround: '4 a 6 horas',
     active: true,
-    notes: 'No ingerir alimentos ni bebidas azucaradas, sólo agua.'
+    notes: 'Prohibido el consumo de chicles o café (incluso sin azúcar). Si toma tratamiento para el control glucémico, consultar al médico si requiere tomarlo o no antes del estudio.'
   },
   {
     id: 'qui-2',
@@ -118,241 +130,325 @@ export const INITIAL_EXAMS: LabExam[] = [
     name: 'Glicemia Postprandial (PP)',
     synonyms: ['glicemia pp', 'glucosa postprandial', 'glucosa 2 horas post comida'],
     priceUsd: 4.5,
-    fastingHours: 'Toma exactamente 2 horas después de comer',
+    fastingHours: 'Toma exactamente 2 horas después de finalizar el desayuno',
     sampleType: 'Suero',
     turnaround: '4 a 6 horas',
     active: true,
-    notes: 'Requiere primera toma en ayunas y segunda 2 horas post ingesta.'
+    notes: 'Una vez recolectada la muestra basal, desayunar inmediatamente. Al terminar, contar 2 horas exactas en reposo. Si está fuera del laboratorio, regresar al menos 20 minutos antes de cumplirse el tiempo.'
   },
   {
     id: 'qui-3',
     category: 'Química Sanguínea',
-    name: 'Glicemia Postcarga (75g)',
-    synonyms: ['glicemia postcarga', 'curva de tolerancia a la glucosa', 'ttog', 'glucosa post 75g'],
-    priceUsd: 4.5,
-    fastingHours: '8 a 12 horas de ayuno',
+    name: 'Glicemia Post-carga (Curva de Tolerancia / PTOG)',
+    synonyms: ['glicemia postcarga', 'curva de tolerancia a la glucosa', 'ttog', 'glucosa post 75g', 'curva de glucosa'],
+    priceUsd: 11.0,
+    fastingHours: 'Ayuno previo de 8 a 12 horas',
     sampleType: 'Suero',
     turnaround: '6 horas',
     active: true,
-    notes: 'El paciente debe disponer de 2 horas en el laboratorio para la toma tras carga oral.'
+    notes: 'Tras la muestra basal se administra la solución glucosada (75g). Contar 2h exactas en reposo (o puntos según indicación médica). Regresar 20 min antes si sale. Notificar náuseas o mareos de inmediato.'
   },
   {
     id: 'qui-4',
     category: 'Química Sanguínea',
-    name: 'Carga Glucosada (Tratamiento)',
-    synonyms: ['carga glucosada', 'dextrosa 75g', 'solucion glucosada'],
-    priceUsd: 11.0,
-    fastingHours: '8 horas',
-    sampleType: 'Reactivo para prueba funcional',
-    turnaround: 'Inmediato',
+    name: 'Perfil Lipídico (Colesterol Total, HDL, LDL, VLDL, Triglicéridos)',
+    synonyms: ['perfil lipidico', 'colesterol y trigliceridos', 'lipidos', 'lipidograma', 'colesterol total hdl ldl trigliceridos'],
+    priceUsd: 18.0,
+    fastingHours: 'Ayuno estricto de 10 a 12 horas',
+    sampleType: 'Suero',
+    turnaround: '6 horas',
     active: true,
-    notes: 'Insumo de dextrosa anhidra para prueba de sobrecarga.'
+    notes: 'Evitar cenas hipergrasas o ingesta excesiva la noche anterior (cenar antes de las 8:00 pm). Mantener dieta habitual. En caso de infecciones agudas, cirugías o traumatismos, posponer la prueba de 2 a 3 semanas.'
   },
   {
     id: 'qui-5',
     category: 'Química Sanguínea',
-    name: 'Urea / BUN',
-    synonyms: ['urea', 'bun', 'nitrogeno ureico', 'funcion renal urea'],
+    name: 'Ácido Úrico',
+    synonyms: ['acido urico', 'uratos', 'uricemia'],
     priceUsd: 4.5,
-    fastingHours: '8 a 12 horas',
+    fastingHours: 'Ayuno de al menos 8 horas o más',
     sampleType: 'Suero',
     turnaround: '4 a 6 horas',
     active: true,
-    notes: 'Evaluación de función renal y metabolismo proteico.'
+    notes: 'Evitar dietas hiperproteicas y el consumo de alcohol (especialmente cerveza) o mariscos en las 48 horas previas al examen.'
   },
   {
     id: 'qui-6',
     category: 'Química Sanguínea',
-    name: 'Creatinina',
-    synonyms: ['creatinina serica', 'creatinina', 'funcion renal creatinina'],
+    name: 'Urea / BUN',
+    synonyms: ['urea', 'bun', 'nitrogeno ureico', 'funcion renal urea'],
     priceUsd: 4.5,
-    fastingHours: '8 a 12 horas',
+    fastingHours: 'Ayuno ideal de 8 a 12 horas (emergencias sin ayuno)',
     sampleType: 'Suero',
     turnaround: '4 a 6 horas',
     active: true,
-    notes: 'Marcador principal de función renal y filtración glomerular.'
+    notes: 'No ingerir exceso de proteínas en las 24 horas anteriores (eleva la concentración de urea en sangre sin reflejar fallo renal real).'
   },
   {
     id: 'qui-7',
     category: 'Química Sanguínea',
-    name: 'Perfil Lipídico Completo',
-    synonyms: ['colesterol y trigliceridos', 'lipidos', 'perfil lipidico', 'colesterol total hdl ldl trigliceridos'],
-    priceUsd: 18.0,
-    fastingHours: '12 horas estrictas de ayuno',
+    name: 'Creatinina',
+    synonyms: ['creatinina serica', 'creatinina', 'funcion renal creatinina'],
+    priceUsd: 4.5,
+    fastingHours: 'Ayuno ideal de 8 a 12 horas (emergencias sin ayuno)',
+    sampleType: 'Suero',
+    turnaround: '4 a 6 horas',
+    active: true,
+    notes: 'Restringir el ejercicio extenuante y evitar la ingesta masiva de carne roja cocida en las 24 horas previas.'
+  },
+  {
+    id: 'qui-8',
+    category: 'Química Sanguínea',
+    name: 'Transaminasas (TGO/AST, TGP/ALT) y GGT',
+    synonyms: ['transaminasas', 'tgo', 'tgp', 'ast', 'alt', 'ggt', 'gammaglutamiltransferasa', 'perfil hepatico transaminasas'],
+    priceUsd: 13.5,
+    fastingHours: 'Ayuno de 8 a 12 horas',
     sampleType: 'Suero',
     turnaround: '6 horas',
     active: true,
-    notes: 'Incluye Colesterol Total, HDL, LDL, VLDL y Triglicéridos. Evitar cena grasa.'
+    notes: 'Suspender ejercicio extenuante y consumo de alcohol 48 horas antes. Informar sobre medicamentos hepatotóxicos o inductores enzimáticos y afecciones hepáticas previas.'
+  },
+  {
+    id: 'qui-9',
+    category: 'Química Sanguínea',
+    name: 'Bilirrubina Total y Fraccionada (Directa e Indirecta)',
+    synonyms: ['bilirrubina', 'bilirrubinas', 'bilirrubina total', 'ictericia'],
+    priceUsd: 6.0,
+    fastingHours: 'Ayuno de 8 a 12 horas (excepción neonatos/lactantes)',
+    sampleType: 'Suero (proteger de la luz)',
+    turnaround: '6 horas',
+    active: true,
+    notes: 'Evaluación de función hepática, biliar y hemólisis. Proteger el tubo de la exposición a la luz solar directa.'
+  },
+  {
+    id: 'qui-10',
+    category: 'Química Sanguínea',
+    name: 'Lactato Deshidrogenasa (LDH)',
+    synonyms: ['ldh', 'lactato deshidrogenasa'],
+    priceUsd: 7.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '6 horas',
+    active: true,
+    notes: 'Evitar el ejercicio físico intenso previo a la recolección de la muestra.'
+  },
+  {
+    id: 'qui-11',
+    category: 'Química Sanguínea',
+    name: 'Proteínas Totales y Fraccionadas (Albúmina y Globulinas)',
+    synonyms: ['proteinas totales', 'albumina', 'globulinas', 'relacion ag', 'proteinas sericas'],
+    priceUsd: 6.5,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '6 horas',
+    active: true,
+    notes: 'Evaluación del estado nutricional, hepático y renal.'
+  },
+  {
+    id: 'qui-12',
+    category: 'Química Sanguínea',
+    name: 'Calcio, Fósforo y Magnesio',
+    synonyms: ['calcio', 'fosforo', 'magnesio', 'minerales sericos', 'calcio serico'],
+    priceUsd: 12.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '6 horas',
+    active: true,
+    notes: 'Evaluación del metabolismo óseo, neuromuscular y paratiroideo.'
+  },
+  {
+    id: 'qui-13',
+    category: 'Química Sanguínea',
+    name: 'Electrolitos Séricos (Sodio, Potasio, Cloro)',
+    synonyms: ['electrolitos', 'sodio', 'potasio', 'cloro', 'ionograma', 'electrolitos sericos'],
+    priceUsd: 14.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '4 a 6 horas',
+    active: true,
+    notes: 'Evaluación del equilibrio hidroelectrolítico y función renal.'
   },
 
-  // --- HORMONAS ---
+  // --- HORMONAS & ENDOCRINOLOGÍA ---
   {
     id: 'hor-1',
-    category: 'Hormonas',
-    name: 'Insulina Basal',
-    synonyms: ['insulina', 'insulina en ayunas', 'insulina basal'],
-    priceUsd: 14.0,
-    fastingHours: '8 a 12 horas de ayuno',
-    sampleType: 'Suero',
-    turnaround: '24 horas',
-    active: true,
-    notes: 'Evaluación de resistencia a la insulina e índice HOMA.'
-  },
-  {
-    id: 'hor-2',
-    category: 'Hormonas',
-    name: 'Insulina Postprandial (PP)',
-    synonyms: ['insulina pp', 'insulina post comida', 'insulina postprandial'],
-    priceUsd: 25.0,
-    fastingHours: 'Exactamente 2 horas post comida',
-    sampleType: 'Suero',
-    turnaround: '24 horas',
-    active: true,
-    notes: 'Evaluación de respuesta pancreática.'
-  },
-  {
-    id: 'hor-3',
-    category: 'Hormonas',
-    name: 'Insulina Postcarga (75g)',
-    synonyms: ['insulina postcarga', 'insulina post glucosa', 'curva de insulina'],
-    priceUsd: 14.0,
-    fastingHours: '8 horas de ayuno previo',
-    sampleType: 'Suero',
-    turnaround: '24 horas',
-    active: true,
-    notes: 'Toma seriada post ingesta de 75g de glucosa.'
-  },
-  {
-    id: 'hor-4',
-    category: 'Hormonas',
-    name: 'T3 Libre (Triyodotironina libre)',
-    synonyms: ['t3 libre', 't3', 'triyodotironina', 'tiroides t3'],
-    priceUsd: 13.5,
-    fastingHours: '8 horas (Tomar antes de las 10:00 AM)',
-    sampleType: 'Suero',
-    turnaround: '24 horas',
-    active: true,
-    notes: 'Perfil tiroideo. Tomar antes de la dosis de levotiroxina si aplica.'
-  },
-  {
-    id: 'hor-5',
     category: 'Hormonas',
     name: 'TSH Ultrasensible (Hormona Tiroestimulante)',
     synonyms: ['tsh', 'tirotropina', 'tsh ultrasensible', 'hormona de la tiroides', 'tiroides tsh'],
     priceUsd: 13.0,
-    fastingHours: '8 horas de ayuno (Muestra antes de 10:00 AM)',
+    fastingHours: 'Ayuno de 8 horas o más (Muestra entre 7:00 AM y 9:00 AM)',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Principal prueba de despistaje de hipo/hipertiroidismo.'
+    notes: 'En caso de recibir Levotiroxina, la muestra debe tomarse ANTES de administrar la dosis diaria. Suspender suplementos con Biotina (Vitamina B7/B8) mínimo 48 a 72 horas antes por interferencia analítica.'
   },
   {
-    id: 'hor-6',
+    id: 'hor-2',
     category: 'Hormonas',
     name: 'T4 Libre (Tiroxina libre)',
     synonyms: ['t4 libre', 't4', 'tiroxina', 'tiroides t4'],
     priceUsd: 13.0,
-    fastingHours: '8 horas (Antes de 10:00 AM)',
+    fastingHours: 'Ayuno de 8 horas o más (Muestra entre 7:00 AM y 9:00 AM)',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Fracción activa de tiroxina.'
+    notes: 'Tomar antes de la dosis diaria de Levotiroxina. Suspender suplementos con Biotina 48 a 72 horas antes.'
+  },
+  {
+    id: 'hor-3',
+    category: 'Hormonas',
+    name: 'T3 Libre (Triyodotironina libre)',
+    synonyms: ['t3 libre', 't3', 'triyodotironina', 'tiroides t3'],
+    priceUsd: 13.5,
+    fastingHours: 'Ayuno de 8 horas o más (Muestra entre 7:00 AM y 9:00 AM)',
+    sampleType: 'Suero',
+    turnaround: '24 horas',
+    active: true,
+    notes: 'Tomar antes de la dosis de Levotiroxina. Suspender Biotina 48 a 72 horas antes.'
+  },
+  {
+    id: 'hor-4',
+    category: 'Hormonas',
+    name: 'Anticuerpos Antitiroideos (Anti-TPO y Anti-Tiroglobulina)',
+    synonyms: ['anti tpo', 'anti tiroglobulina', 'anticuerpos antitiroideos', 'hashimoto', 'anti tg'],
+    priceUsd: 25.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '24 a 48 horas',
+    active: true,
+    notes: 'Suspender suplementos con dosis altas de Biotina 48 a 72 horas antes por posible interferencia técnica.'
+  },
+  {
+    id: 'hor-5',
+    category: 'Hormonas',
+    name: 'Prolactina (PRL)',
+    synonyms: ['prolactina', 'prl', 'hormona prolactina', 'hiperprolactinemia'],
+    priceUsd: 12.0,
+    fastingHours: 'Ayuno de 8 horas o más. Toma estricta antes de las 9:00 AM.',
+    sampleType: 'Suero',
+    turnaround: '24 horas',
+    active: true,
+    notes: 'Abstención de actividad sexual y estimulación mamaria durante 24-48h antes. Evitar ejercicio físico intenso el día anterior y estrés agudo pre-toma. Notificar psicofármacos, neurolépticos, antieméticos (metoclopramida) o anticonceptivos.'
+  },
+  {
+    id: 'hor-6',
+    category: 'Hormonas',
+    name: 'LH y FSH (Hormonas Gonadotrópicas)',
+    synonyms: ['lh', 'fsh', 'gonadotropinas', 'hormona luteinizante', 'foliculo estimulante', 'reserva ovarica'],
+    priceUsd: 22.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '24 horas',
+    active: true,
+    notes: 'Recolectar según indicación médica o entre los días 2 y 5 del ciclo menstrual (fase folicular temprana) para evaluación basal de reserva ovárica. Indicar fecha de última menstruación (FUM).'
   },
   {
     id: 'hor-7',
     category: 'Hormonas',
-    name: 'Cortisol Sérico 8:00 a.m. (Hormona del estrés)',
-    synonyms: ['cortisol 8am', 'cortisol matutino', 'cortisol am', 'hormona del estres 8am'],
-    priceUsd: 15.0,
-    fastingHours: '8 horas. El paciente debe estar en reposo 20 min antes.',
-    sampleType: 'Suero (Toma estricta entre 7:30 AM y 8:30 AM)',
+    name: 'Progesterona',
+    synonyms: ['progesterona', 'prog', 'pg', 'fase lutea progesterona'],
+    priceUsd: 12.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Evaluación del eje suprarrenal.'
+    notes: 'Se recomienda recolectar la muestra el día 21 de un ciclo de 28 días (o 7 días antes de la menstruación esperada / fase lútea media).'
   },
   {
     id: 'hor-8',
     category: 'Hormonas',
-    name: 'Cortisol Sérico 4:00 p.m.',
-    synonyms: ['cortisol 4pm', 'cortisol vespertino', 'cortisol pm'],
-    priceUsd: 15.0,
-    fastingHours: 'Ayuno de 3 horas antes de la toma de las 4:00 PM',
+    name: 'Estradiol (E2)',
+    synonyms: ['estradiol', 'e2', 'estrogenos'],
+    priceUsd: 13.0,
+    fastingHours: 'Ayuno de 8 horas o más',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Evaluación del ritmo circadiano de cortisol.'
+    notes: 'Días 2 a 4 del ciclo para evaluación basal/fertilidad, o días 12 a 14 para monitoreo de ovulación. Informar uso de terapia hormonal, anticonceptivos u ovariostáticos, e indicar FUM.'
   },
   {
     id: 'hor-9',
     category: 'Hormonas',
-    name: 'Estradiol (E2)',
-    synonyms: ['estradiol', 'e2', 'hormona femenina estradiol'],
-    priceUsd: 13.0,
-    fastingHours: '8 horas de ayuno',
+    name: 'DHEA-SO4 (Sulfato de Dehidroepiandrosterona)',
+    synonyms: ['dhea', 'dhea-so4', 'dhea so4', 'dehidroepiandrosterona'],
+    priceUsd: 16.0,
+    fastingHours: 'Ayuno de 8 horas o más',
     sampleType: 'Suero',
-    turnaround: '24 horas',
+    turnaround: '24 a 48 horas',
     active: true,
-    notes: 'Indicar día del ciclo menstrual al acudir.'
+    notes: 'No requiere días específicos del ciclo menstrual a menos que exista indicación médica.'
   },
   {
     id: 'hor-10',
     category: 'Hormonas',
-    name: 'FSH (Hormona Folículo Estimulante)',
-    synonyms: ['fsh', 'foliculo estimulante', 'hormona fsh'],
-    priceUsd: 12.0,
-    fastingHours: '8 horas de ayuno',
+    name: 'Cortisol AM (8:00 a.m.)',
+    synonyms: ['cortisol 8am', 'cortisol am', 'cortisol matutino', 'hormona del estres am'],
+    priceUsd: 15.0,
+    fastingHours: 'Ayuno de 8 horas o más. Extracción exacta a las 8:00 AM.',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Evaluación de reserva ovárica y fertilidad.'
+    notes: 'El paciente debe llegar entre 20 a 30 minutos antes para permanecer en reposo estricto previo a la extracción. Evitar estrés físico o emocional.'
   },
   {
     id: 'hor-11',
     category: 'Hormonas',
-    name: 'LH (Hormona Luteinizante)',
-    synonyms: ['lh', 'luteinizante', 'hormona lh'],
-    priceUsd: 12.0,
-    fastingHours: '8 horas de ayuno',
+    name: 'Cortisol PM (4:00 p.m.)',
+    synonyms: ['cortisol 4pm', 'cortisol pm', 'cortisol vespertino'],
+    priceUsd: 15.0,
+    fastingHours: 'Ayuno leve. Extracción exacta a las 4:00 PM.',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Evaluación de ovulación y fertilidad.'
+    notes: 'El paciente debe llegar 20 a 30 minutos antes de las 4:00 PM para reposo previo. Evitar estrés.'
   },
   {
     id: 'hor-12',
     category: 'Hormonas',
-    name: 'Progesterona (Prog / PG)',
-    synonyms: ['progesterona', 'prog', 'pg'],
-    priceUsd: 12.0,
-    fastingHours: '8 horas de ayuno',
+    name: 'Insulina Basal',
+    synonyms: ['insulina', 'insulina en ayunas', 'insulina basal', 'homa'],
+    priceUsd: 14.0,
+    fastingHours: 'Ayuno estricto de 8 a 12 horas de ayuno',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Habitualmente tomada en día 21 del ciclo.'
+    notes: 'Suspender ejercicio físico intenso el día anterior. Mencionar si toma algún tratamiento hipoglucemiante.'
   },
   {
     id: 'hor-13',
     category: 'Hormonas',
-    name: 'Prolactina (PRL)',
-    synonyms: ['prolactina', 'prl', 'hormona prolactina'],
-    priceUsd: 12.0,
-    fastingHours: '8 horas de ayuno. Despertar 2 horas antes de la toma.',
+    name: 'Insulina Postprandial (PP) / Post-carga',
+    synonyms: ['insulina pp', 'insulina postprandial', 'curva de insulina'],
+    priceUsd: 20.0,
+    fastingHours: 'Toma 2 horas exactas post desayuno o solución glucosada',
     sampleType: 'Suero',
     turnaround: '24 horas',
     active: true,
-    notes: 'Evitar relaciones sexuales y estrés 24h antes.'
+    notes: 'Permanecer en reposo. Regresar al laboratorio 20 minutos antes de cumplirse las 2 horas. Notificar mareos o náuseas.'
   },
   {
     id: 'hor-14',
     category: 'Hormonas',
-    name: 'Beta HCG Cuantitativa (Prueba de Embarazo en Sangre)',
+    name: 'Testosterona Total y Testosterona Libre',
+    synonyms: ['testosterona', 'testosterona total', 'testosterona libre', 'androgenos'],
+    priceUsd: 22.0,
+    fastingHours: 'Ayuno de 8 horas o más',
+    sampleType: 'Suero',
+    turnaround: '24 a 48 horas',
+    active: true,
+    notes: 'Evitar la toma durante procesos infecciosos o metabólicos agudos. En mujeres, idealmente evaluar en fase folicular temprana (días 2-5 del ciclo) e indicar FUM. Mencionar reemplazo hormonal.'
+  },
+  {
+    id: 'hor-15',
+    category: 'Hormonas',
+    name: 'Beta HCG Cuantitativa (Prueba de Embarazo)',
     synonyms: ['beta hcg', 'embarazo en sangre', 'gonadotropina corionica', 'beta cuantitativa', 'hcg'],
     priceUsd: 12.0,
-    fastingHours: 'Sin ayuno o 4 horas de ayuno',
+    fastingHours: 'Sin ayuno o ayuno ligero de 4 horas',
     sampleType: 'Suero',
     turnaround: '3 a 4 horas',
     active: true,
-    notes: 'Confirma semanas de gestación o monitoreo obstétrico.'
+    notes: 'Determinación cuantitativa de subunidad beta para confirmación o edad gestacional.'
   },
 
   // --- MICROBIOLOGÍA AUTOMATIZADA ---
@@ -360,13 +456,13 @@ export const INITIAL_EXAMS: LabExam[] = [
     id: 'mic-1',
     category: 'Microbiología',
     name: 'Urocultivo Automatizado con Antibiograma',
-    synonyms: ['urocultivo', 'cultivo de orina', 'examen de orina cultivo', 'infeccion urinaria cultivo'],
+    synonyms: ['urocultivo', 'cultivo de orina', 'infeccion urinaria cultivo', 'antibiograma orina'],
     priceUsd: 35.0,
-    fastingHours: 'Sin ayuno. Retención urinaria mínima de 4 horas.',
-    sampleType: 'Primera orina de la mañana o chorro medio en recolector estéril',
+    fastingHours: 'Sin ayuno. Primera orina matutina o retención mínima de 3 a 4 horas.',
+    sampleType: 'Orina de chorro medio en frasco estéril de farmacia',
     turnaround: '48 a 72 horas',
     active: true,
-    notes: 'Aseo genital previo con abundante agua, sin antibióticos 48-72h antes.'
+    notes: 'Aseo de genitales externos con agua y jabón neutro (NO usar antisépticos ni desinfectantes), secar con toalla limpia. Descartar primer chorro y recolectar chorro medio. Mantener en nevera y transportar en hielo al laboratorio. Sin antibióticos 48-72h antes. (En niños: bolsa pediátrica cambiada cada 30 min).'
   },
   {
     id: 'mic-2',
@@ -375,10 +471,10 @@ export const INITIAL_EXAMS: LabExam[] = [
     synonyms: ['coprocultivo', 'cultivo de heces', 'cultivo fecal'],
     priceUsd: 42.0,
     fastingHours: 'Sin ayuno',
-    sampleType: 'Muestra fecal en frasco estéril transportada antes de 2 horas',
+    sampleType: 'Muestra fecal en recipiente estéril adecuado',
     turnaround: '72 horas',
     active: true,
-    notes: 'Sin antibióticos ni laxantes previos.'
+    notes: 'No ingerir antidiarreicos, bismuto, antiácidos ni aceites minerales antes. Emitir en recipiente limpio no absorbente sin orina. Porción tamaño de una nuez (o 5-10 mL si es líquida) seleccionando zonas con moco/sangre. Trasladar de inmediato a temperatura ambiente. En lactantes: sin cremas antipañalitis/talcos/aceites y pañal al revés.'
   },
   {
     id: 'mic-3',
@@ -386,7 +482,7 @@ export const INITIAL_EXAMS: LabExam[] = [
     name: 'Exudado Faríngeo con Antibiograma',
     synonyms: ['exudado faringeo', 'cultivo de garganta', 'hisopado faringeo', 'cultivo de exudado faringeo'],
     priceUsd: 35.0,
-    fastingHours: 'En ayunas estricto, sin cepillarse los dientes ni usar enjuague bucal.',
+    fastingHours: 'Asistir en ayunas, sin cepillarse los dientes, sin enjuagues ni antisépticos bucales.',
     sampleType: 'Hisopado faríngeo amigdalar',
     turnaround: '48 a 72 horas',
     active: true,
@@ -395,74 +491,100 @@ export const INITIAL_EXAMS: LabExam[] = [
   {
     id: 'mic-4',
     category: 'Microbiología',
-    name: 'Cultivo de Secreción Nasal / Nasofaríngeo',
-    synonyms: ['cultivo nasal', 'secrecion nasal', 'cultivo nasofaringeo'],
-    priceUsd: 35.0,
-    fastingHours: 'Sin ayuno. No colocar gotas nasales 24h antes.',
-    sampleType: 'Hisopado nasal',
-    turnaround: '48 a 72 horas',
+    name: 'Cultivo de Esputo (Expectoración Profunda)',
+    synonyms: ['cultivo de esputo', 'esputo', 'expectoracion profunda', 'secrecion bronquial'],
+    priceUsd: 50.0,
+    fastingHours: 'En ayunas',
+    sampleType: 'Desgarro bronquial matutino profundo en frasco estéril (no saliva)',
+    turnaround: '72 horas',
     active: true,
-    notes: 'Aislamiento bacteriano de fosas nasales.'
+    notes: 'Enjuague de cavidad oral únicamente con agua (sin crema dental ni enjuagues). Obtener temprano por tos profunda del árbol bronquial. Evitar saliva o secreción nasofaríngea (criterio de rechazo). Traslado inmediato a temperatura ambiente.'
   },
   {
     id: 'mic-5',
     category: 'Microbiología',
-    name: 'Cultivo de Secreción Ocular / Oído (Ótica)',
-    synonyms: ['cultivo ocular', 'secrecion ocular', 'cultivo otico', 'secrecion de oido'],
-    priceUsd: 45.0,
-    fastingHours: 'Sin colirios ni gotas óticas antibióticas por 48 horas.',
-    sampleType: 'Secreción conjuntival / hisopado ótico',
+    name: 'Cultivo de Secreción de Heridas y Úlceras',
+    synonyms: ['cultivo de herida', 'cultivo de ulceras', 'secrecion de herida'],
+    priceUsd: 50.0,
+    fastingHours: 'Sin cremas tópicas, ungüentos ni desinfectantes 24h antes.',
+    sampleType: 'Exudado purulento / hisopado de lecho ulceroso',
     turnaround: '48 a 72 horas',
     active: true,
-    notes: 'Identificación bacteriana con antibiograma MIC.'
+    notes: 'Lavado estricto previo de la lesión con agua estéril por personal de salud entrenado. Transporte a temperatura ambiente en medio adecuado.'
   },
   {
     id: 'mic-6',
     category: 'Microbiología',
-    name: 'Cultivo de Secreción de Heridas y Úlceras',
-    synonyms: ['cultivo de herida', 'cultivo de ulceras', 'secrecion de herida'],
-    priceUsd: 50.0,
-    fastingHours: 'Lavar la herida solo con solución salina el día de la toma.',
-    sampleType: 'Exudado purulento / hisopado de lecho ulceroso',
+    name: 'Cultivo de Secreciones Óticas, Oculares y Nasales',
+    synonyms: ['cultivo otico', 'cultivo ocular', 'cultivo conjuntival', 'cultivo nasal', 'secrecion de oido', 'secrecion de ojo'],
+    priceUsd: 45.0,
+    fastingHours: 'Sin medicamentos tópicos previos',
+    sampleType: 'Hisopado de secreción',
     turnaround: '48 a 72 horas',
     active: true,
-    notes: 'Sin cremas antibióticas ni antisépticos coloreados 24h previas.'
+    notes: 'Ótico: sin gotas óticas por 48h. Ocular: sin colirios ni lágrimas artificiales 12-24h, retirar lentes de contacto 12h antes, sin maquillaje. Nasal: suspender gotas o sprays corticoides/descongestionantes 12-24h antes.'
   },
   {
     id: 'mic-7',
     category: 'Microbiología',
-    name: 'Cultivo de Secreción Vaginal / Uretral',
-    synonyms: ['cultivo vaginal', 'cultivo uretral', 'frotis y cultivo vaginal', 'flujo vaginal cultivo'],
+    name: 'Cultivo de Líquidos Biológicos (LCR, Pleural, Ascítico, Pericárdico)',
+    synonyms: ['cultivo de lcr', 'liquido cefalorraquideo', 'cultivo de liquido pleural', 'liquido ascitico', 'liquido pericardico', 'liquido peritoneal'],
     priceUsd: 45.0,
-    fastingHours: 'Abstinencia sexual 48h. Sin óvulos ni duchas vaginales 72h.',
-    sampleType: 'Exudado genital obtenido con espéculo / hisopo',
+    fastingHours: 'Toma médica intrahospitalaria o ambulatoria',
+    sampleType: 'Líquido biológico estéril',
     turnaround: '48 a 72 horas',
     active: true,
-    notes: 'En hombres, no haber orinado al menos 3 horas antes.'
+    notes: '¡IMPORTANTE: NUNCA REFRIGERAR! El LCR y otros líquidos biológicos para microbiología deben trasladarse de inmediato al laboratorio a temperatura ambiente.'
   },
   {
     id: 'mic-8',
     category: 'Microbiología',
-    name: 'Cultivo de Esputo / Secreción Bronquial',
-    synonyms: ['cultivo de esputo', 'esputo', 'secrecion bronquial', 'aspirado bronquial'],
-    priceUsd: 50.0,
-    fastingHours: 'En ayunas. Enjuague bucal solo con agua antes de toser profundamente.',
-    sampleType: 'Desgarro bronquial matutino profundo en frasco estéril (no saliva)',
-    turnaround: '72 horas',
+    name: 'Hemocultivo Automatizado',
+    synonyms: ['hemocultivo', 'cultivo de sangre', 'bacteriemia hemocultivo'],
+    priceUsd: 48.0,
+    fastingHours: 'Sin requerimientos de ayuno ni restricciones dietéticas',
+    sampleType: 'Sangre venosa inoculada en frasco comercial especial',
+    turnaround: '5 a 7 días',
     active: true,
-    notes: 'Verificación de calidad microscópica (Células de Bartlett).'
+    notes: 'Extraer idealmente antes de iniciar antimicrobianos (o justo antes de la siguiente dosis). Recomendado al inicio de picos febriles o escalofríos por venopunción periférica. Mantener frascos a temperatura ambiente.'
+  },
+
+  // --- MICOLOGÍA (ESTUDIOS MICOLÓGICOS / HONGOS) ---
+  {
+    id: 'mico-1',
+    category: 'Micología',
+    name: 'Cultivo Micológico de Uñas (Onicomicosis)',
+    synonyms: ['cultivo de uñas', 'micologico de uñas', 'onicomicosis', 'hongos en uñas', 'cultivo micologico uñas'],
+    priceUsd: 38.0,
+    fastingHours: 'Sin ayuno',
+    sampleType: 'Raspado / recorte subungueal',
+    turnaround: '15 a 21 días (Lectura directa en 24h)',
+    active: true,
+    notes: 'NO usar tratamiento antimicótico tópico (cremas, lacas) ni oral mínimo 7 a 15 días antes. 3 días previos no aplicar cosméticos, cremas ni esmaltes. No cortarse las uñas la semana previa. Limpiar con agua, jabón neutro y cepillo suave 3 días antes. Acudir con calzado cerrado y medias limpias (sin talco). Sin esmalte ni endurecedor de 3 a 7 días antes.'
   },
   {
-    id: 'mic-9',
-    category: 'Microbiología',
-    name: 'Cultivo de Líquidos Corporales (LCR, Pleural, Sinovial)',
-    synonyms: ['cultivo de lcr', 'liquido cefalorraquideo', 'cultivo de liquido pleural', 'liquido ascitico'],
-    priceUsd: 43.0,
-    fastingHours: 'Toma médica especializada intrahospitalaria o ambulatoria',
-    sampleType: 'Líquido estéril en tubo sin anticoagulante',
-    turnaround: '48 a 72 horas',
+    id: 'mico-2',
+    category: 'Micología',
+    name: 'Cultivo Micológico de Cabello y Cuero Cabelludo',
+    synonyms: ['cultivo de cuero cabelludo', 'tinea capitis', 'tiña de la cabeza', 'hongos en cabeza', 'micologico de pelo'],
+    priceUsd: 38.0,
+    fastingHours: 'Sin ayuno',
+    sampleType: 'Pelos afectados y escamas del cuero cabelludo',
+    turnaround: '15 a 21 días',
     active: true,
-    notes: 'Procesamiento automatizado de alta sensibilidad.'
+    notes: 'Sin antimicóticos tópicos u orales por 7 a 15 días. No lavar el cabello 24 horas antes de la toma. No aplicar fijadores, lacas, gomina, tintes, aceites ni acondicionadores el día previo ni el día de la toma. Evitar peinado o cepillado agresivo previo.'
+  },
+  {
+    id: 'mico-3',
+    category: 'Micología',
+    name: 'Cultivo Micológico de Escamas de Piel (Tiñas / Pitiriasis)',
+    synonyms: ['cultivo de piel', 'micologico de piel', 'pitiriasis versicolor', 'tinea corporis', 'tiña inguinal', 'hongos en piel', 'tinea pedis pie de atleta'],
+    priceUsd: 38.0,
+    fastingHours: 'Sin ayuno',
+    sampleType: 'Raspado de escamas epidérmicas superficiales',
+    turnaround: '15 a 21 días (Examen directo KOH en 24h)',
+    active: true,
+    notes: 'Sin antimicóticos tópicos ni orales por 7 a 15 días. Baño general con agua y jabón neutro 24h antes. EVITAR LA DUCHA justo antes de la toma para no desprender mecánicamente las escamas. Zona limpia y seca, libre de maquillaje, desodorante (si es axila), talcos o cremas por al menos 3 días.'
   },
 
   // --- MARCADORES TUMORALES & ESPECIALES ---
@@ -493,18 +615,6 @@ export const INITIAL_EXAMS: LabExam[] = [
   {
     id: 'mar-3',
     category: 'Marcadores',
-    name: 'Alfafetoproteína (AFP)',
-    synonyms: ['afp', 'alfafetoproteina', 'marcador hepatico'],
-    priceUsd: 12.0,
-    fastingHours: '4 a 8 horas de ayuno',
-    sampleType: 'Suero',
-    turnaround: '24 horas',
-    active: true,
-    notes: 'Marcador para hígado, testículo y control prenatal.'
-  },
-  {
-    id: 'mar-4',
-    category: 'Marcadores',
     name: 'CEA (Antígeno Carcinoembrionario)',
     synonyms: ['cea', 'antigeno carcinoembrionario', 'marcador colon'],
     priceUsd: 12.0,
@@ -515,7 +625,7 @@ export const INITIAL_EXAMS: LabExam[] = [
     notes: 'Marcador digestivo y colon.'
   },
   {
-    id: 'mar-5',
+    id: 'mar-4',
     category: 'Marcadores',
     name: 'CA-125 (Marcador Ovárico)',
     synonyms: ['ca125', 'ca 125', 'marcador ovario'],
@@ -527,7 +637,7 @@ export const INITIAL_EXAMS: LabExam[] = [
     notes: 'Marcador ginecológico y ovárico.'
   },
   {
-    id: 'mar-6',
+    id: 'mar-5',
     category: 'Marcadores',
     name: 'CA 15-3 (Marcador Mamario)',
     synonyms: ['ca15-3', 'ca 15-3', 'ca 15 3', 'marcador mama'],
@@ -539,7 +649,7 @@ export const INITIAL_EXAMS: LabExam[] = [
     notes: 'Marcador de seguimiento mamario.'
   },
   {
-    id: 'mar-7',
+    id: 'mar-6',
     category: 'Marcadores',
     name: 'CA 19-9 (Marcador Gastrointestinal / Páncreas)',
     synonyms: ['ca19-9', 'ca 19-9', 'ca 19 9', 'marcador pancreas'],
@@ -551,7 +661,7 @@ export const INITIAL_EXAMS: LabExam[] = [
     notes: 'Marcador pancreático y biliar.'
   },
   {
-    id: 'mar-8',
+    id: 'mar-7',
     category: 'Pruebas Especiales',
     name: 'Anti-CCP (Anticuerpo Antipéptido Cíclico Citrulinado)',
     synonyms: ['anti ccp', 'anti-ccp', 'peptido citrulinado', 'artritis reumatoide'],
@@ -563,31 +673,7 @@ export const INITIAL_EXAMS: LabExam[] = [
     notes: 'Diagnóstico precoz de Artritis Reumatoide.'
   },
   {
-    id: 'mar-9',
-    category: 'Pruebas Especiales',
-    name: 'Anti-TG (Anticuerpos Antitiroglobulina)',
-    synonyms: ['anti tg', 'anti tiroglobulina', 'anticuerpos tiroideos anti tg'],
-    priceUsd: 15.0,
-    fastingHours: '8 horas de ayuno',
-    sampleType: 'Suero',
-    turnaround: '24 a 48 horas',
-    active: true,
-    notes: 'Autoinmunidad tiroidea.'
-  },
-  {
-    id: 'mar-10',
-    category: 'Pruebas Especiales',
-    name: 'Anti-TPO (Anticuerpos Antiperoxidasa Tiroidea)',
-    synonyms: ['anti tpo', 'anti peroxidasa', 'tiroides autoinmune', 'hashimoto'],
-    priceUsd: 15.0,
-    fastingHours: '8 horas de ayuno',
-    sampleType: 'Suero',
-    turnaround: '24 a 48 horas',
-    active: true,
-    notes: 'Diagnóstico de Tiroiditis de Hashimoto.'
-  },
-  {
-    id: 'mar-11',
+    id: 'mar-8',
     category: 'Pruebas Especiales',
     name: 'Gases Arteriales',
     synonyms: ['gases arteriales', 'gasometria arterial', 'gasometria'],
@@ -597,17 +683,5 @@ export const INITIAL_EXAMS: LabExam[] = [
     turnaround: '1 hora (Urgente)',
     active: true,
     notes: 'Evaluación de oxigenación, CO2 y equilibrio ácido-base.'
-  },
-  {
-    id: 'mar-12',
-    category: 'Pruebas Especiales',
-    name: 'Gases Venosos',
-    synonyms: ['gases venosos', 'gasometria venosa'],
-    priceUsd: 68.0,
-    fastingHours: 'Sin ayuno.',
-    sampleType: 'Sangre venosa heparinizada',
-    turnaround: '1 hora (Urgente)',
-    active: true,
-    notes: 'Equilibrio metabólico y respiratorio venoso.'
   }
 ];

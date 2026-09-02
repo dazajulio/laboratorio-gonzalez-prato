@@ -143,7 +143,7 @@ export const KnowledgeBase: React.FC = () => {
         {/* Filter and Search Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex flex-wrap gap-1.5">
-            {['ALL', 'PREANALITICA', 'PROTOCOLOS', 'DOMICILIOS', 'SEGUROS'].map(cat => (
+            {['ALL', 'PREANALITICA', 'MICROBIOLOGIA', 'MICOLOGIA', 'DOMICILIOS', 'SEGUROS', 'PROTOCOLOS'].map(cat => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
@@ -273,6 +273,8 @@ export const KnowledgeBase: React.FC = () => {
                     className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#00A8B5]"
                   >
                     <option value="PREANALITICA">Preanalítica / Ayunos</option>
+                    <option value="MICROBIOLOGIA">Microbiología & Cultivos</option>
+                    <option value="MICOLOGIA">Micología / Hongos</option>
                     <option value="PROTOCOLOS">Protocolos Clínicos</option>
                     <option value="DOMICILIOS">Toma a Domicilio</option>
                     <option value="SEGUROS">Seguros & Pagos</option>
