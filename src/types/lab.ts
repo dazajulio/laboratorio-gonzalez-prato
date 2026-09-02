@@ -83,4 +83,5 @@ export interface SystemConfig {
   workingHours: string;
   address: string;
   scheduleConfig: WorkingScheduleConfig;
+  adminPin?: string;
 }

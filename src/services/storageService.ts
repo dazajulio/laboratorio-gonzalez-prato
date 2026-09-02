@@ -31,7 +31,8 @@ export const DEFAULT_CONFIG: SystemConfig = {
     sundayClose: '12:00',
     silenceAlarmsOutOfHours: true,
     outOfHoursCustomMessage: 'Estimado paciente, nuestra sede física se encuentra en receso fuera de horario laboral. He registrado su solicitud con prioridad alta para que nuestra secretaría le atienda a primera hora del siguiente día hábil.'
-  }
+  },
+  adminPin: '1000'
 };
 
 export const storageService = {

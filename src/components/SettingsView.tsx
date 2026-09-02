@@ -7,7 +7,9 @@ import {
   Check, 
   Building2, 
   Sun, 
-  Moon
+  Moon,
+  ShieldCheck,
+  KeyRound
 } from 'lucide-react';
 
 interface SettingsViewProps {
@@ -253,6 +255,44 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ config, onSaveConfig
               onChange={(e) => setForm({ ...form, address: e.target.value })} 
               className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs" 
             />
+          </div>
+        </div>
+      </div>
+
+      {/* SECCIÓN 4: SEGURIDAD & CONTRASEÑA ADMIN */}
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+        <div className="border-b border-slate-100 pb-3 flex items-center gap-2">
+          <div className="p-1.5 bg-amber-50 rounded-lg text-amber-600">
+            <ShieldCheck className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="text-sm font-bold text-slate-900">Seguridad & Control de Acceso Administrador</h3>
+            <p className="text-[11px] text-slate-500">Protege el Tarifario, Base de Datos, CRM de Pacientes, Analítica y Configuración frente al perfil de Secretaría.</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+            <label className="font-bold text-slate-800 block">
+              PIN / Contraseña de Administrador:
+            </label>
+            <input 
+              type="text" 
+              value={form.adminPin || '1000'} 
+              onChange={(e) => setForm({ ...form, adminPin: e.target.value })} 
+              placeholder="Ej: 1000"
+              className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono font-bold tracking-wider bg-white focus:outline-none focus:border-[#00A8B5]" 
+            />
+            <p className="text-[10px] text-slate-400">
+              Contraseña requerida cuando la secretaria o cualquier usuario intente abrir las pestañas de administración. (Por defecto: 1000).
+            </p>
+          </div>
+          <div className="p-4 bg-teal-50/50 rounded-2xl border border-teal-100 space-y-1.5 flex flex-col justify-center">
+            <span className="font-bold text-[#0E4D58] flex items-center gap-1.5 text-xs">
+              <KeyRound className="w-4 h-4 text-[#00A8B5]" /> Política de Roles
+            </span>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              La <strong>Bandeja en Vivo</strong> permanece abierta y accesible para la secretaria en todo momento. Para salir a cualquier otra vista, el sistema solicitará este PIN.
+            </p>
           </div>
         </div>
       </div>
